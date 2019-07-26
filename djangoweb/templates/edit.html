@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% block content %}
+<form action="/contact/?id={{row.id}}&method=update" method="POST">
+    {% csrf_token %}
+<div class="row">
+        <div class="col-md-8 off-set-2">
+<div class="col-md-6">
+        <div class="form-group">
+            <label for="form_name">Firstname *</label>
+            <input id="form_name" type="text" name="name" class="form-control" value="{{row.firstname}}" required="required" data-error="Firstname is required.">
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="form_lastname">Lastname *</label>
+            <input id="form_lastname" type="text" name="lastname" class="form-control" value="{{row.lastname}}" required="required" data-error="Lastname is required.">
+            <div class="help-block with-errors"></div>
+        </div>
+</div>
+<div class="col-md-6">
+    <div class="form-group">
+        <label for="form_lastname">Email *</label>
+        <input id="form_lastname" type="text" name="email" class="form-control" value="{{row.email}}" required="required" data-error="Lastname is required.">
+        <div class="help-block with-errors"></div>
+    </div>
+</div>
+</div>
+</div>
+<div class="row">
+        <div class="col-md-8 off-set-2">
+<div class="col-md-12">
+        <div class="form-group">
+            <label for="form_message">Message *</label>
+            <textarea id="form_message" name="message" class="form-control"  rows="4" required="required" data-error="Please, leave us a message."> {{row.message}} </textarea>
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <input type="submit" class="btn btn-success btn-send" value="Save contact">
+    </div>
+</div>
+</div>
+</form>
+{% endblock%}
